@@ -1,159 +1,122 @@
 <!DOCTYPE html>
-    <html lang="eng">
-        <head>
+<html lang="eng">
+<head>
 
-            <meta charset="UTF-8">
-            <title>On The Go Train</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>On The Go Train</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
           
-          </head>
+</head>
 
-    <body>
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
 
-        <body>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
 
-            <span><div class="container">
-          
-              <br>
-          
-              <!-- Jumbotron -->
-              <div class="jumbotron">
-                <h1 class="text-center">On the go...Train!</h1>
-              </div>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA0Ojc5IYB-8RkupT6KAzE2viB5wzJZ45g",
+    authDomain: "onthegotrain-d8765.firebaseapp.com",
+    databaseURL: "https://onthegotrain-d8765.firebaseio.com",
+    projectId: "onthegotrain-d8765",
+    storageBucket: "",
+    messagingSenderId: "1085733132190",
+    appId: "1:1085733132190:web:da72c5d76a1eb771"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-              <!--Table-->
-              
-<table class="table table-striped w-auto">
+  function writeData() {
+                firebase.database().ref("add-user").set({
+                    trainName: document.getElementById("TrainName-input").value,
+                    destination: document.getElementById("Destination-input").value,
+                    trainTime: document.getElementById("TrainTime-input").value,
+                    frequency: document.getElementById("Frequency-input").value 
+                });
+            }
 
-    <!--Table head-->
-    <thead>
-        <th>Train Name</th>
-        <th>Destination</th>
-        <th>Frequency (min)</th>
-        <th>Next Arrival</th>
-        <th>Minute Away</th>
-      </tr>
-    </thead>
-    <!--Table head-->
-  
-    <!--Table body-->
-    <tbody>
-      <tr class="table-info">
-        <th scope="row">1</th>
-        <td>Kate</td>
-        <td>Moss</td>
-        <td>USA</td>
-        <td>New York City</td>
-        <td>Web Designer</td>
-        <td>23</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Anna</td>
-        <td>Wintour</td>
-        <td>United Kingdom</td>
-        <td>London</td>
-        <td>Frontend Developer</td>
-        <td>36</td>
-      </tr>
-      <tr class="table-info">
-        <th scope="row">3</th>
-        <td>Tom</td>
-        <td>Bond</td>
-        <td>Spain</td>
-        <td>Madrid</td>
-        <td>Photographer</td>
-        <td>25</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Jerry</td>
-        <td>Horwitz</td>
-        <td>Italy</td>
-        <td>Bari</td>
-        <td>Editor-in-chief</td>
-        <td>41</td>
-      </tr>
-      <tr class="table-info">
-        <th scope="row">5</th>
-        <td>Janis</td>
-        <td>Joplin</td>
-        <td>Poland</td>
-        <td>Warsaw</td>
-        <td>Video Maker</td>
-        <td>39</td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-        <td>Gary</td>
-        <td>Winogrand</td>
-        <td>Germany</td>
-        <td>Berlin</td>
-        <td>Photographer</td>
-        <td>37</td>
-      </tr>
-      
-      </tr>
-    </tbody>
-    <!--Table body-->
-  
-  
-  </table>
-  <!--Table-->
+
+</script>
+
+<div class="container">
+
+    <br>
+
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="text-center">On the go...Train!</h1>
+    </div>
           
-              <div class="row">
-          
-                <!-- Sign-Up Card-->
-                <div class="col-lg-6">
-                  <div class="card card-default">
-                    <div class="card-header">
-                      Add Train
-                    </div>
-                    <div class="card-body">
-          
-                      <!-- Sign-up Form (note the various input "types")-->
-                      <form role="form">
-                        <div class="form-group row">
-                          <label for="trainName-input"> Train Name:</label>
-                          <input class="form-control" id="name-input" type="text">
-                        </div>
-                        <div class="form-group row">
-                          <label for="destination-input">Destination:</label>
-                          <input class="form-control" id="email-input" type="email">
-                        </div>
-                        <div class="form-group row">
-                          <label for="trainTime-input">First Train Time (HH:mm Military Time)</label>
-                          <input class="form-control" id="age-input" type="number">
-                        </div>
-                        <div class="form-group row">
-                          <label for="frequency-input">Frequency (min)</label>
-                          <textarea class="form-control" id="comment-input" rows="5"></textarea>
-                        </div>
-                        <button class="btn btn-default" id="add-user" type="submit">Submit</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>        
-            </div></span>
-          
+    <div class="row">
+    
+        <!-- Sign-Up Card-->
+        <div class="col-lg-6">
+            <div class="card card-default">
+             <div class="card-header">
+                Add Train
+            </div>
+            <div class="card-body">
+    
+                <!-- Sign-up Form (note the various input "types")-->
+                <form role="form">
+                <div class="form-group row">
+                    <label for="trainName-input"> Train Name:</label>
+                    <input class="form-control" id="TrainName-input" type="text">
+                </div>
+                <div class="form-group row">
+                    <label for="destination-input">Destination:</label>
+                    <input class="form-control" id="Destination-input" type="text">
+                </div>
+                <div class="form-group row">
+                    <label for="trainTime-input">First Train Time (HH:mm Military Time)</label>
+                    <input class="form-control" id="TrainTime-input" type="number">
+                </div>
+                <div class="form-group row">
+                    <label for="frequency-input">Frequency (min)</label>
+                    <textarea class="form-control" id="Frequency-input" type="number"></textarea>
+                </div>
+                <button onclick="writeData" class="btn btn-default" id="add-user" type="submit">Submit</button>
+             </form>
+          </div>
+        </div>
+     </div>        
+ </div>  
             <!-- jQuery -->
-            <script src="https://code.jquery.com/jquery.js"></script>
-          
-            <!-- Script -->
-            <script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    
+    <script>
+        // Capture Button Click
+        $("#add-user").on("click", function(event) {
+      // prevent form from trying to submit/refresh the page
+      event.preventDefault();
+            // Capture User Inputs and store them into variables
+            var tName = $("#TrainName-input").val().trim();
+            var dest = $("#Destination-input").val().trim();
+            var tTime = $("#TrainTime-input").val().trim();
+            var freq = $("#Frequency-input").val().trim();
+    
+            // Console log each of the user inputs to confirm we are receiving them
+            console.log(tName);
+            console.log(dest);
+            console.log(tTime);
+            console.log(freq);
+    
+            // Output all of the new information into the relevant HTML sections
+            $("#TrainName-display").text(tName);
+            $("#Destination-display").text(dest);
+            $("#TrainTime-display").text(tTime);
+            $("#Frequency-display").text(freq);
+
+        });
+    </script>
 
 
 
-
-
-    </body>
-
-
-
-
-
-
-
+</body>
 
 </html>
